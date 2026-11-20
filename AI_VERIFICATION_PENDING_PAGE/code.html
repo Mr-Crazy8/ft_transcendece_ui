@@ -1,0 +1,103 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>NexusLink — Profile Verification</title>
+<!-- Google Fonts: Inter & Newsreader / Playfair for editorial aesthetic -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for colors and typography -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0c0d11',
+              card: '#16181f',
+              border: '#232631',
+              pill: '#21242d',
+              pillBorder: '#2e3340',
+              muted: '#7e8494',
+              subtle: '#4f5565',
+              text: '#e6e8ed',
+              heading: '#f3f4f7'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-refinements">
+    /* Subtle background and border styling adjustments */
+    body {
+      background-color: #0c0d11;
+      color: #9aa0af;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-border {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-white/[0.04] bg-[#0c0d11]" data-purpose="site-header">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo / Wordmark -->
+<a class="text-xl font-bold tracking-tight text-white hover:text-neutral-200 transition-colors" data-purpose="brand-logo" href="#">
+        NexusLink
+      </a>
+<!-- Primary Navigation Links -->
+<nav class="flex items-center space-x-8 text-sm font-medium text-neutral-400" data-purpose="primary-navigation">
+<a class="hover:text-neutral-200 transition-colors" href="#">The difference</a>
+<a class="hover:text-neutral-200 transition-colors" href="#">How it works</a>
+<a class="hover:text-neutral-200 transition-colors" href="#">Our community</a>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 w-full max-w-4xl mx-auto px-6 pb-20 flex flex-col items-center pt-20" data-purpose="verification-content">
+<!-- Eyebrow Section Indicator -->
+
+<!-- BEGIN: PrimaryVerificationCard -->
+<div class="w-full max-w-xl mx-auto flex flex-col items-center text-center py-10" data-purpose="status-overview-card"><div class="w-12 h-12 rounded-full border border-amber-400/20 bg-amber-400/[0.04] flex items-center justify-center mb-6"><svg class="w-5 h-5 text-amber-400/90 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h1 class="font-serif text-3xl sm:text-5xl text-neutral-100 font-normal tracking-tight leading-[1.18] mb-4">Verification in review</h1><p class="text-sm sm:text-base text-neutral-400 max-w-md mx-auto leading-relaxed mb-8 font-normal">Your interview responses are being reviewed for depth and clarity. We'll notify you as soon as your decision is ready.</p><div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-[#16181f]/60 mb-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse"></span><span class="text-xs text-neutral-300 font-medium">Step 2 of 3: Under evaluation</span></div></div>
+<!-- END: PrimaryVerificationCard -->
+<!-- BEGIN: TwoColumnSupportCards -->
+
+<!-- END: TwoColumnSupportCards -->
+<!-- Back Navigation Link -->
+<a class="inline-flex items-center gap-2 text-xs sm:text-sm text-neutral-400 hover:text-neutral-200 transition-colors font-medium tracking-normal py-2.5 px-4 rounded-full border border-white/[0.04] hover:border-white/[0.1] bg-[#16181f]/40" data-purpose="back-navigation" href="#"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>Back to home</a>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full border-t border-white/[0.05] bg-[#0c0d11] mt-auto" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+<!-- Left Copyright & Branding -->
+<div class="flex flex-col space-y-1.5" data-purpose="footer-brand-info">
+<span class="text-base font-bold text-neutral-100 tracking-tight">NexusLink</span>
+<span class="text-xs text-neutral-400">
+          © 2026 FD Transcendence. Knowledge deserves better.
+        </span>
+</div>
+<!-- Right Navigation Links -->
+<nav class="flex items-center space-x-7 text-xs font-medium text-neutral-400" data-purpose="footer-navigation">
+<a class="hover:text-neutral-200 transition-colors" href="#">The difference</a>
+<a class="hover:text-neutral-200 transition-colors" href="#">How it works</a>
+<a class="hover:text-neutral-200 transition-colors" href="#">Community</a>
+</nav>
+</div>
+</footer>
+<!-- END: MainFooter -->
+
+
+
+
+</body></html>

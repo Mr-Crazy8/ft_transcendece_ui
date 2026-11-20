@@ -1,0 +1,134 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>NexusLink — Verify Your Expertise</title>
+<!-- Google Fonts: Newsreader (Serif) & Inter (Sans-serif) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6c63ff',
+              hover: '#5b52f5',
+            },
+            surface: {
+              base: '#0e0f13',
+              card: '#16171d',
+              cardInner: '#1a1b22',
+              input: '#121318',
+              border: '#23252d'
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0e0f13] text-gray-200 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-purple selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-[#1f2129] bg-[#0e0f13]/90 backdrop-blur-sm sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="text-xl font-bold tracking-tight text-white flex items-center gap-2" href="#">
+        NexusLink
+      </a>
+<!-- Primary Navigation Links -->
+<nav aria-label="Main Navigation">
+<ul class="flex items-center space-x-8 text-sm font-medium text-gray-400">
+<li><a class="hover:text-white transition-colors duration-200" href="#">The difference</a></li>
+<li><a class="hover:text-white transition-colors duration-200" href="#">How it works</a></li>
+<li><a class="hover:text-white transition-colors duration-200" href="#">Our community</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-6 md:px-12 pt-14 pb-24"><div class="max-w-3xl mx-auto w-full pt-8 pb-16">
+  <!-- Minimalist Stepper & Domain Breadcrumb -->
+  <div class="flex items-center justify-between text-xs tracking-wider uppercase text-gray-500 font-semibold mb-8">
+    <div class="flex items-center gap-2">
+      <span class="text-indigo-400 font-bold">Step 2 of 3</span>
+      <span>·</span>
+      <span class="text-gray-400">Expertise Interview</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-gray-400">Question 01 of 05</span>
+    </div>
+  </div>
+
+  <!-- Subtle Progress Bar -->
+  <div class="w-full h-1 bg-[#1a1b22] rounded-full overflow-hidden mb-12">
+    <div class="h-full bg-brand-purple rounded-full w-[20%] transition-all duration-300"></div>
+  </div>
+
+  <!-- Focused Interaction Workspace -->
+  <article class="space-y-8">
+    <!-- Question Header -->
+    <div class="space-y-4">
+      <h1 class="font-serif text-3xl sm:text-4xl text-white leading-snug font-medium tracking-tight">
+        Tell us about a technical problem you solved that changed how you approach your work.
+      </h1>
+      <p class="text-base text-gray-400 leading-relaxed font-normal">
+        What was the challenge, what did you try, and what did you learn? Focus on your direct contribution and technical reasoning.
+      </p>
+    </div>
+
+    <!-- Clean Minimalist Writing Area -->
+    <div class="pt-2 space-y-3">
+      <div class="relative">
+        <textarea id="response-input" rows="9" class="w-full bg-[#111216] border border-[#23252d] rounded-xl p-5 text-base text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-purple focus:border-brand-purple transition duration-150 resize-y leading-relaxed font-sans shadow-sm" placeholder="Start with the context, then walk us through your thinking and technical trade-offs..."></textarea>
+      </div>
+      <div class="flex items-center justify-between text-xs text-gray-500 px-1">
+        <span>Markdown supported · Focus on structure &amp; clarity</span>
+        <span>Draft autosaved</span>
+      </div>
+    </div>
+
+    <!-- Minimal Footer Actions -->
+    <div class="pt-6 border-t border-[#1f2129] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-gray-500 order-2 sm:order-1 text-center sm:text-left">
+        Preview mode. Answers are private and not evaluated yet.
+      </p>
+      <button type="button" class="order-1 sm:order-2 w-full sm:w-auto inline-flex items-center justify-center px-7 py-3 rounded-lg text-sm font-semibold text-white bg-brand-purple hover:bg-brand-hover active:scale-[0.99] transition shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-purple focus:ring-offset-[#0e0f13]">
+        Next question
+      </button>
+    </div>
+  </article>
+</div></main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full border-t border-[#1f2129] mt-auto">
+<div class="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-400">
+<!-- Copyright & Brand Moto -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
+<span class="font-bold text-white tracking-tight">NexusLink</span>
+<span class="text-xs sm:text-sm text-gray-500">
+          © 2026 FD Transcendence. Knowledge deserves better.
+        </span>
+</div>
+<!-- Footer Navigation Links -->
+<nav aria-label="Footer Navigation">
+<ul class="flex items-center space-x-8 text-xs sm:text-sm">
+<li><a class="hover:text-white transition-colors duration-200" href="#">The difference</a></li>
+<li><a class="hover:text-white transition-colors duration-200" href="#">How it works</a></li>
+<li><a class="hover:text-white transition-colors duration-200" href="#">Community</a></li>
+</ul>
+</nav>
+</div>
+</footer>
+<!-- END: MainFooter -->
+
+
+</body></html>

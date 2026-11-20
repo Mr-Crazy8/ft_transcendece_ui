@@ -1,0 +1,169 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FD Transcendence - Feed</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Newsreader for editorial serif titles & Inter for UI -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#635BFF',
+              hover: '#5249ea',
+              light: '#7B73FF',
+              glow: 'rgba(99, 91, 255, 0.15)',
+            },
+            surface: {
+              background: '#0d0e12',
+              card: '#13151b',
+              cardHover: '#171922',
+              border: '#1f222e',
+              borderLight: '#2b2f3e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Style Adjustments -->
+<style data-purpose="custom-scroll-and-typography">
+    body {
+      background-color: #0c0d12;
+      color: #e2e8f0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .font-serif-title {
+      font-family: 'Newsreader', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+
+    /* Subdued custom focus rings */
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px #635BFF;
+    }
+  </style>
+<!-- END: Custom Style Adjustments -->
+</head>
+<body class="min-h-screen bg-[#0c0d12] text-slate-200 antialiased selection:bg-brand selection:text-white">
+<!-- BEGIN: TopHeader -->
+<header class="sticky top-0 z-40 w-full border-b border-[#1c1f2b] bg-[#0c0d12]/95 backdrop-blur-md">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<!-- Brand Logo / Wordmark -->
+<div class="flex items-center gap-8">
+<a class="text-sm font-bold tracking-[0.18em] text-slate-100 hover:text-white transition-colors" data-purpose="brand-logo" href="#">
+          FD TRANSCENDENCE
+        </a>
+</div>
+<!-- Center Search Bar -->
+<div class="flex-1 max-w-xl mx-8 hidden sm:block">
+<div class="relative w-full">
+<input class="w-full rounded-md border border-[#212431] bg-[#14161f] py-2 px-4 text-xs sm:text-sm text-slate-200 placeholder-slate-500 transition-all focus:border-[#635BFF] focus:bg-[#171a25]" data-purpose="global-search-input" placeholder="Search expertise, people, and ideas" type="text">
+</div>
+</div>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-4">
+<!-- Notification Bell Icon -->
+<button aria-label="Notifications" class="relative rounded-full p-2 text-slate-400 hover:text-slate-200 hover:bg-[#1a1d28] transition-colors" data-purpose="notification-button" type="button">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Avatar Badge -->
+<button class="flex h-9 w-9 items-center justify-center rounded-full bg-[#1e2230] text-xs font-semibold text-slate-200 border border-[#2a2e40] hover:border-slate-400 transition" data-purpose="user-avatar-button" type="button">
+          AE
+        </button>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 py-6">
+<!-- BEGIN: LeftSidebarNav -->
+<aside class="hidden md:block md:col-span-3 lg:col-span-2.5">
+<nav class="sticky top-24 space-y-2 border-r border-[#1a1d29]/60 pr-6" data-purpose="primary-navigation">
+<!-- Feed (Active) -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-[#7e76ff] bg-[#1a182f]/60 border border-[#635BFF]/20 transition-all" href="#">
+<svg class="h-4 w-4 text-[#7e76ff]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Feed</span>
+</a>
+<!-- Explore -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-[#151722] transition-colors" href="#">
+<svg class="h-4 w-4 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Explore</span>
+</a>
+<!-- Connections -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-[#151722] transition-colors" href="#">
+<svg class="h-4 w-4 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Connections</span>
+</a>
+<!-- Messages -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-[#151722] transition-colors" href="#">
+<svg class="h-4 w-4 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Messages</span>
+</a>
+<!-- Notifications -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-[#151722] transition-colors" href="#">
+<svg class="h-4 w-4 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Notifications</span>
+</a>
+<!-- Settings -->
+<a class="group flex items-center gap-3.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-[#151722] transition-colors pt-2" href="#">
+<svg class="h-4 w-4 text-slate-400 group-hover:text-slate-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<!-- END: LeftSidebarNav -->
+<!-- BEGIN: CenterFeedStream -->
+<main class="md:col-span-9 space-y-6 lg:col-span-9">
+<!-- Header Section -->
+<header class="space-y-1.5 pb-2">
+<h1 class="text-3xl sm:text-4xl font-serif-title font-medium text-white tracking-tight">Your feed</h1>
+
+</header>
+<!-- Write a Post Quick Card -->
+<div class="flex items-center justify-between border-b border-[#1c1f2b] pb-4 pt-1 transition-colors" data-purpose="compose-post-card"><div class="flex items-center gap-3 text-sm text-slate-400"><div class="flex h-7 w-7 items-center justify-center rounded-full bg-[#1e2230] text-[11px] font-semibold text-slate-300">AE</div><span class="text-sm text-slate-400 font-normal">Share an insight, question, or reflection...</span></div><button class="inline-flex items-center gap-1.5 rounded-md bg-[#635BFF] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#5045ea] transition-colors" data-purpose="write-post-button" type="button"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Write</span></button></div>
+<!-- Feed Filter Tabs -->
+<div class="flex items-center gap-8 border-b border-[#1c1f2b] pb-2 text-xs" data-purpose="feed-tabs"><button class="font-medium text-white relative pb-2">Curated<span class="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-[#635BFF]"></span></button><button class="text-slate-400 hover:text-slate-200 transition-colors pb-2">Following</button><button class="text-slate-400 hover:text-slate-200 transition-colors pb-2">Discussions</button></div>
+<!-- Feed Articles Stream -->
+<div class="space-y-8 pt-2" data-purpose="post-card-feed"><article class="group space-y-3 pb-8 border-b border-[#1c1f2b]/80" data-purpose="feed-post-item"><div class="flex items-center justify-between text-xs text-slate-400"><div class="flex items-center gap-2"><span class="font-medium text-slate-200">Maya Chen</span><span class="text-slate-500">·</span><span>Software Engineering</span><span class="text-slate-500">·</span><span>5 min read</span></div><span class="text-slate-500">2h ago</span></div><div class="space-y-2"><h2 class="font-serif-title text-2xl sm:text-3xl font-normal text-white group-hover:text-slate-200 transition-colors cursor-pointer">The hardest part of distributed systems isn't the distribution.</h2><p class="text-sm leading-relaxed text-slate-400 font-normal max-w-2xl">It's deciding what you can afford to get wrong. After a decade of architecting systems under pressure, here are the architectural trade-offs I wish we discussed with greater candor.</p></div><div class="flex items-center justify-between pt-1 text-xs text-slate-400"><div class="flex items-center gap-6"><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>142</span></button><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>28</span></button></div><button aria-label="Bookmark" class="text-slate-500 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></article><article class="group space-y-3 pb-8 border-b border-[#1c1f2b]/80" data-purpose="feed-post-item"><div class="flex items-center justify-between text-xs text-slate-400"><div class="flex items-center gap-2"><span class="font-medium text-slate-200">Omar Haddad</span><span class="text-slate-500">·</span><span>Product Design</span><span class="text-slate-500">·</span><span>4 min read</span></div><span class="text-slate-500">4h ago</span></div><div class="space-y-2"><h2 class="font-serif-title text-2xl sm:text-3xl font-normal text-white group-hover:text-slate-200 transition-colors cursor-pointer">Good interfaces make a promise. Great ones keep it.</h2><p class="text-sm leading-relaxed text-slate-400 font-normal max-w-2xl">Consistency is not about making every surface look interchangeable. It's about giving people an unshakeable, intuitive mental model of how state shifts under their fingers.</p></div><div class="flex items-center justify-between pt-1 text-xs text-slate-400"><div class="flex items-center gap-6"><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>96</span></button><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>19</span></button></div><button aria-label="Bookmark" class="text-slate-500 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></article><article class="group space-y-3 pb-8" data-purpose="feed-post-item"><div class="flex items-center justify-between text-xs text-slate-400"><div class="flex items-center gap-2"><span class="font-medium text-slate-200">Elena Rossi</span><span class="text-slate-500">·</span><span>Machine Learning</span><span class="text-slate-500">·</span><span>7 min read</span></div><span class="text-slate-500">6h ago</span></div><div class="space-y-2"><h2 class="font-serif-title text-2xl sm:text-3xl font-normal text-white group-hover:text-slate-200 transition-colors cursor-pointer">What your model's accuracy isn't telling you</h2><p class="text-sm leading-relaxed text-slate-400 font-normal max-w-2xl">A high benchmark score is a fragile comfort. Three essential stress-tests every team should conduct before rolling an evaluation pipeline into production.</p></div><div class="flex items-center justify-between pt-1 text-xs text-slate-400"><div class="flex items-center gap-6"><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>84</span></button><button class="flex items-center gap-1.5 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>12</span></button></div><button aria-label="Bookmark" class="text-slate-500 hover:text-slate-200 transition" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></article></div>
+</main>
+<!-- END: CenterFeedStream -->
+<!-- BEGIN: RightSidebar -->
+
+<!-- END: RightSidebar -->
+</div>
+</div>
+<!-- END: MainContentWrapper -->
+
+
+
+
+</body></html>

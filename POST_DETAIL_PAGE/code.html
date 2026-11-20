@@ -1,0 +1,166 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The hardest part of distributed systems isn’t the distribution. - FD Transcendence</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter & Newsreader for editorial aesthetic -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0a0b0e',
+              surface: '#111318',
+              card: '#16181f',
+              cardBorder: '#232631',
+              primary: '#6366f1',
+              primaryHover: '#4f46e5',
+              accent: '#f59e0b',
+              muted: '#8e95a5',
+              subtle: '#525866'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-scrollbars-and-typography">
+    body {
+      background-color: #0b0c10;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-editorial {
+      font-family: 'Newsreader', Georgia, serif;
+    }
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0c10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #232734;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333a4c;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="min-h-screen bg-[#090a0d] text-[#e1e4ea] antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+<!-- BEGIN: TopHeader -->
+<header class="sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-[#1c1e27] bg-[#090a0d]/90 px-6 backdrop-blur-md">
+<!-- Left: Brand Logo -->
+<div class="flex items-center space-x-3">
+<span class="text-[13px] font-bold tracking-[0.2em] text-white">FD TRANSCENDENCE</span>
+</div>
+<!-- Center: Search Bar -->
+<div class="w-full max-w-xl px-4">
+<div class="relative">
+<input class="w-full rounded-md border border-[#232733] bg-[#12141a] py-2 pl-4 pr-10 text-[13px] text-gray-200 placeholder-[#636a7e] transition-colors focus:border-indigo-500 focus:bg-[#151821] focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="Search expertise, people, and ideas" type="text">
+</div>
+</div>
+<!-- Right: Header Actions -->
+<div class="flex items-center space-x-5">
+<!-- Notification Icon -->
+<button aria-label="Notifications" class="relative text-[#949cae] transition-colors hover:text-white" type="button">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Avatar Badge -->
+<button aria-label="User Profile" class="flex h-8 w-8 items-center justify-center rounded-full bg-[#272b38] text-xs font-semibold text-gray-200 ring-1 ring-[#3b4154] transition hover:ring-indigo-500" type="button">
+        AE
+      </button>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainContainerLayout -->
+<div class="flex min-h-[calc(100vh-4rem)]">
+<!-- BEGIN: LeftSidebarNav -->
+<aside class="sticky top-16 hidden h-[calc(100vh-4rem)] w-60 shrink-0 flex-col border-r border-[#1c1e27] bg-[#090a0d] py-6 pl-6 pr-4 md:flex">
+<nav class="space-y-1">
+<!-- Feed Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Feed</span>
+</a>
+<!-- Explore Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M12 21a9 9 0 100-18 9 9 0 000 18z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M10.5 13.5l1.5-4.5 4.5-1.5-1.5 4.5-4.5 1.5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Explore</span>
+</a>
+<!-- Connections Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Connections</span>
+</a>
+<!-- Messages Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Messages</span>
+</a>
+<!-- Notifications Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Notifications</span>
+</a>
+<!-- Settings Link -->
+<a class="group flex items-center space-x-3.5 rounded-lg px-3 py-2.5 text-[14px] font-medium text-[#9da5b7] transition-all hover:bg-[#14161f] hover:text-white" href="#">
+<svg class="h-5 w-5 text-[#737c92] transition-colors group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<!-- END: LeftSidebarNav -->
+<!-- BEGIN: MainContentArea -->
+<main class="flex-1 px-4 py-8 sm:px-8 lg:px-12">
+<div class="mx-auto max-w-6xl">
+<!-- Back Navigation Link -->
+<div class="mb-5">
+<a class="inline-flex items-center text-[13px] font-medium text-[#848d9f] transition-colors hover:text-white" href="#">
+<svg class="mr-2 h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+            Back to feed
+          </a>
+</div>
+<!-- Two Column Grid: Main Article & Right Meta Column -->
+<div class="mx-auto max-w-3xl space-y-12"><article data-purpose="article-container" class="space-y-8"><div class="space-y-4"><div class="flex items-center justify-between"><span class="text-[11px] font-semibold tracking-wider text-[#818cf8] uppercase">SOFTWARE ENGINEERING</span><div class="flex items-center space-x-2 text-[12px] text-[#788195]"><svg class="h-4 w-4 text-[#eab308]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>2h ago · 8 min read</span></div></div><h1 class="font-editorial text-3xl font-normal tracking-tight text-white md:text-[42px] md:leading-[1.18]">The hardest part of distributed systems isn’t the distribution.</h1></div><div class="flex items-center justify-between border-b border-[#1c1e27] pb-6 pt-2"><div class="flex items-center space-x-3.5"><div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#202534] text-[13px] font-semibold text-gray-200 ring-1 ring-[#2a3042]">MC</div><div><div class="flex items-center space-x-2"><span class="text-[14px] font-semibold text-white">Maya Chen</span><span class="text-[#6d7689] text-xs">·</span><span class="text-[12px] text-[#8e98ab]">Distributed Systems</span></div><p class="text-[11.5px] text-[#6d7689]">Verified via AI interview</p></div></div><button class="rounded-full border border-[#2b3040] bg-[#12141c] px-4 py-1.5 text-[12px] font-medium text-gray-200 transition-colors hover:border-[#6366f1] hover:text-white" type="button">Follow</button></div><div class="space-y-6 text-[#c4c9d5] text-[17px] leading-[1.8] font-normal"><p class="text-[18px] text-[#e1e4ea] leading-relaxed font-normal">It’s deciding what you can afford to get wrong. After a decade of building systems at scale, here are the trade-offs I wish we talked about more.</p><h2 class="font-editorial pt-4 text-[26px] font-normal tracking-tight text-white">Start with the cost of being wrong</h2><p>Every architecture encodes a set of priorities. A payment system cannot treat a duplicate charge the way an analytics dashboard treats a delayed event. Before choosing a database or a queue, write down which mistakes your users can tolerate and which ones they cannot.</p><h2 class="font-editorial pt-4 text-[26px] font-normal tracking-tight text-white">Make the trade-off explicit</h2><p>In one system I worked on, we traded immediate consistency for a simpler recovery path. The decision worked because the product made pending states visible and the team rehearsed failure recovery. The architecture alone was not the solution; the operational habits were part of it.</p><p>The useful question is not whether your system is distributed. It is whether your team can explain what happens when one part stops answering. Start there, test the answer, and let the design follow.</p></div><div class="flex items-center justify-between border-t border-[#1c1e27] pt-6 text-[13px] text-[#7f889c]"><div class="flex items-center space-x-6"><button class="group flex items-center space-x-2 transition-colors hover:text-white" type="button"><svg class="h-4 w-4 text-[#7f889c] transition-colors group-hover:text-red-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>128 appreciations</span></button><span class="text-[#3b4050]">·</span><button class="flex items-center space-x-2 transition-colors hover:text-white" type="button"><span>24 comments</span></button></div><div><button aria-label="Bookmark" class="text-[#7f889c] transition-colors hover:text-white" type="button"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div></article><section data-purpose="discussion-container" class="border-t border-[#1c1e27] pt-8 space-y-8"><div class="flex items-center justify-between"><div class="flex items-center space-x-3"><h3 class="text-lg font-medium text-white">Discussion</h3><span class="rounded-full bg-[#1c202c] px-2.5 py-0.5 text-[12px] font-medium text-[#8e98ab]">24</span></div><div class="flex items-center space-x-2 text-[12px] text-[#788195]"><span>Sort by:</span><button type="button" class="inline-flex items-center space-x-1 rounded px-2 py-1 text-white hover:bg-[#14161f] transition-colors"><span class="font-medium">Most insightful</span><svg class="h-3.5 w-3.5 text-[#8e98ab]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="relative rounded-lg border border-[#1e212b] bg-[#12141c] p-4 transition focus-within:border-indigo-500/50"><textarea rows="3" placeholder="Share your perspective, operational failure modes, or trade-offs..." class="w-full resize-none bg-transparent p-1 text-[14px] text-gray-200 placeholder-[#596274] focus:outline-none"></textarea><div class="flex items-center justify-between border-t border-[#1c202c] pt-3 mt-2"><div class="flex items-center space-x-3 text-[12px] text-[#6d7689]"><span class="inline-flex items-center"><svg class="mr-1 h-3.5 w-3.5 text-[#818cf8]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path></svg>Posting as AE (Verified)</span></div><button type="button" class="rounded-md bg-[#6366f1] px-4 py-1.5 text-[13px] font-medium text-white shadow-sm transition hover:bg-[#5254e0] active:scale-[0.98]">Contribute</button></div></div><div class="space-y-6 pt-2"><div class="space-y-3 rounded-lg border border-[#1c1e27] bg-[#0d0e12] p-5"><div class="flex items-start justify-between"><div class="flex items-center space-x-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1e2333] text-[12px] font-semibold text-gray-200 ring-1 ring-[#2a3042]">DL</div><div><div class="flex items-center space-x-2"><span class="text-[14px] font-semibold text-white">David Lindqvist</span><svg class="h-3.5 w-3.5 text-[#eab308]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="text-[#6d7689] text-xs">·</span><span class="text-[12px] text-[#8e98ab]">Principal Infrastructure Architect @ CloudScale</span></div><p class="text-[11.5px] text-[#6d7689]">1h ago</p></div></div><button class="text-[#788195] hover:text-white transition-colors" aria-label="More options"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button></div><p class="text-[14.5px] text-[#c4c9d5] leading-relaxed">The section on ‘rehearsed failure recovery’ hits the nail on the head. Most teams engineer distributed transactions around the happy path and two-phase commit, but fail to realize that network partitions inevitably degrade your latency budget into oblivion. We replaced distributed locking with idempotent journal writes and asynchronous reconciliation runs. It cut 70% of transient outages.</p><div class="flex items-center space-x-5 pt-1 text-[12.5px] text-[#7f889c]"><button type="button" class="group flex items-center space-x-1.5 transition-colors hover:text-white"><svg class="h-4 w-4 text-[#7f889c] transition-colors group-hover:text-red-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>42</span></button><button type="button" class="transition-colors hover:text-white">Reply</button></div><div class="mt-4 border-l-2 border-[#1f2330] pl-4 space-y-3"><div class="flex items-start justify-between"><div class="flex items-center space-x-3"><div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#202534] text-[11px] font-semibold text-gray-200 ring-1 ring-[#2a3042]">MC</div><div><div class="flex items-center space-x-2"><span class="text-[13px] font-semibold text-white">Maya Chen</span><span class="rounded bg-[#202534] px-1.5 py-0.2 text-[10px] font-medium text-[#818cf8]">Author</span><span class="text-[#6d7689] text-xs">·</span><span class="text-[11.5px] text-[#8e98ab]">Distributed Systems</span></div><p class="text-[11px] text-[#6d7689]">45m ago</p></div></div></div><p class="text-[14px] text-[#c4c9d5] leading-relaxed">Exactly, David. Idempotent state transition journals transform an operational nightmare into an auditable rewind-and-replay mechanism. When consistency isn’t synchronous, your UI must treat ‘inflight’ as a first-class state.</p><div class="flex items-center space-x-5 text-[12px] text-[#7f889c]"><button type="button" class="group flex items-center space-x-1.5 transition-colors hover:text-white"><svg class="h-3.5 w-3.5 text-[#7f889c] transition-colors group-hover:text-red-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>19</span></button><button type="button" class="transition-colors hover:text-white">Reply</button></div></div></div><div class="space-y-3 rounded-lg border border-[#1c1e27] bg-[#0d0e12] p-5"><div class="flex items-start justify-between"><div class="flex items-center space-x-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1b2520] text-[12px] font-semibold text-[#2ce19a] ring-1 ring-[#263e33]">SR</div><div><div class="flex items-center space-x-2"><span class="text-[14px] font-semibold text-white">Siddharth Rao</span><svg class="h-3.5 w-3.5 text-[#eab308]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="text-[#6d7689] text-xs">·</span><span class="text-[12px] text-[#8e98ab]">Staff Reliability Engineer @ FinCore</span></div><p class="text-[11.5px] text-[#6d7689]">1h ago</p></div></div><button class="text-[#788195] hover:text-white transition-colors" aria-label="More options"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button></div><p class="text-[14.5px] text-[#c4c9d5] leading-relaxed">The point about ‘writing down which mistakes your users can tolerate’ should be mandatory reading in systems design interviews. In financial settlement, delay is acceptable; silent divergence is catastrophic. In telemetry, partial data loss is fine; backpressure stalling ingestion is unacceptable. Alignment on failure criteria precedes schema design.</p><div class="flex items-center space-x-5 pt-1 text-[12.5px] text-[#7f889c]"><button type="button" class="group flex items-center space-x-1.5 transition-colors hover:text-white"><svg class="h-4 w-4 text-[#7f889c] transition-colors group-hover:text-red-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>27</span></button><button type="button" class="transition-colors hover:text-white">Reply</button></div></div><div class="space-y-3 rounded-lg border border-[#1c1e27] bg-[#0d0e12] p-5"><div class="flex items-start justify-between"><div class="flex items-center space-x-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#271d33] text-[12px] font-semibold text-[#c8bfff] ring-1 ring-[#3a2c4e]">EK</div><div><div class="flex items-center space-x-2"><span class="text-[14px] font-semibold text-white">Elena Kostas</span><svg class="h-3.5 w-3.5 text-[#eab308]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="text-[#6d7689] text-xs">·</span><span class="text-[12px] text-[#8e98ab]">Distributed Database Researcher</span></div><p class="text-[11.5px] text-[#6d7689]">2h ago</p></div></div><button class="text-[#788195] hover:text-white transition-colors" aria-label="More options"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button></div><p class="text-[14.5px] text-[#c4c9d5] leading-relaxed">A lot of teams reach for Raft or Paxos prematurely when what they actually need is monotonic reads with bounded staleness. Replicated state machines introduce serious operational overhead when node membership changes under partition pressure.</p><div class="flex items-center space-x-5 pt-1 text-[12.5px] text-[#7f889c]"><button type="button" class="group flex items-center space-x-1.5 transition-colors hover:text-white"><svg class="h-4 w-4 text-[#7f889c] transition-colors group-hover:text-red-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>15</span></button><button type="button" class="transition-colors hover:text-white">Reply</button></div></div></div></section></div>
+</div>
+</main>
+<!-- END: MainContentArea -->
+</div>
+<!-- END: MainContainerLayout -->
+
+
+</body></html>
